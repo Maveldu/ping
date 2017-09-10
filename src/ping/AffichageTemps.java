@@ -17,6 +17,12 @@ public class AffichageTemps extends JPanel {
 	// Nombre de temps de ping affichés
 	int nombreAffiches = 0;
 	
+	// Decalage droite de l'affichage
+	int decalageDroite;
+	
+	// Decalage haut de l'affichage
+	int decalageHaut;
+	
 	// Liste des temps à afficher
 	List<String> pingsList = new ArrayList<String>();
 	
@@ -25,7 +31,11 @@ public class AffichageTemps extends JPanel {
 	int width = (int) screenSize.getWidth();
 	int height = (int) screenSize.getHeight();
 	
-	public AffichageTemps() {
+	public AffichageTemps(int decalageDroite, int decalageHaut) {
+		
+		this.decalageDroite = decalageDroite;
+		this.decalageHaut = decalageHaut;
+		
 		// L'arrière plan sera transparent
 		Color col = new Color(0,0,1,0);
 		this.setBackground(col);
@@ -39,7 +49,7 @@ public class AffichageTemps extends JPanel {
 			Color coltxt = new Color(172,0,0,255);
 			g.setColor(coltxt);
 			// Affichage du temps sur l'écran
-			g.drawString(pingsList.get(i), 10,height-(50+14*i));
+			g.drawString(pingsList.get(i), decalageDroite, height-(decalageHaut+14*i));
 		}
 		// Affichage des trois derniers temps en semi-transparence 
 		if(nombreAffiches >= 3){
@@ -48,19 +58,19 @@ public class AffichageTemps extends JPanel {
 			Color col = new Color(172,0,0,50);
 			g.setColor(col);
 			// Affichage du temps sur l'écran
-			g.drawString(pingsList.get(nombreAffiches-1), 10,height-(50+14*(nombreAffiches-1)));
+			g.drawString(pingsList.get(nombreAffiches-1), decalageDroite, height-(decalageHaut+14*(nombreAffiches-1)));
 			
 			// On utilise un rouge semi-transparent
 			Color col2 = new Color(172,0,0,100);
 			g.setColor(col2);
 			// Affichage du temps sur l'écran
-			g.drawString(pingsList.get(nombreAffiches-2), 10,height-(50+14*(nombreAffiches-2)));
+			g.drawString(pingsList.get(nombreAffiches-2), decalageDroite, height-(decalageHaut+14*(nombreAffiches-2)));
 			
 			// On utilise un rouge semi-transparent
 			Color col3 = new Color(172,0,0,150);
 			g.setColor(col3);
 			// Affichage du temps sur l'écran
-			g.drawString(pingsList.get(nombreAffiches-3), 10,height-(50+14*(nombreAffiches-3)));
+			g.drawString(pingsList.get(nombreAffiches-3), decalageDroite, height-(decalageHaut+14*(nombreAffiches-3)));
 		}
 	}
 

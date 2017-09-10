@@ -13,14 +13,16 @@ import java.util.List;
 public class Fenetre extends JFrame {
 	
 	// Panneau affichant les temps de ping
-	private AffichageTemps pan = new AffichageTemps();
+	private AffichageTemps pan;
 	
 	// Récupération de la largeur et de la hauteur de l'écran
 	Dimension2D screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	int width = (int) screenSize.getWidth();
 	int height = (int) screenSize.getHeight();
 	
-	public Fenetre(){
+	public Fenetre(int decalageDroite, int decalageHaut){
+		
+		pan = new AffichageTemps(decalageDroite, decalageHaut);
 		
 		// Initialisations habituelles
 		this.setTitle("Ping");
