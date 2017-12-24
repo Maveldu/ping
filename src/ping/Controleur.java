@@ -81,6 +81,13 @@ public class Controleur {
 		// Pour chaque paire "-x yyyy"
 		for(int i=0;i<args.length;i+=2){
 			switch(args[i]){
+			// Help dialog
+			case "-h":
+				System.out.println("-t XXX : The ping's timeout (in ms). Default : 10000\n");
+				System.out.println("-n XXX : The number of ping times displayed. Default : 30\n");
+				System.out.println("-D XXX : The display's left margin (in pixels). Default : 10\n");
+				System.out.println("-H XXX : The display's bottom margin (in pixels). Default : 50\n");
+				break;
 			// Le temps d'attente avant d'estimer que la cible est injoignable
 			case "-t":
 				try {
